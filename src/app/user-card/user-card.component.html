@@ -1,0 +1,12 @@
+<!-- src/app/user-card/user-card.component.html -->
+<div class="user-card">
+  <img [src]="user.profilePicture" alt="Profile Picture" class="profile-pic" />
+  <h3>{{ user.username }}</h3>
+  <p>Email: {{ user.email }}</p>
+  <p>Phone: {{ user.phone }}</p>
+  <p>Birthdate: {{ user.birthdate | date: 'MM/dd/yyyy' }}</p>
+
+  <span [ngClass]="getRoleClass(user.role)" class="role-chip">
+    {{ user.role | titlecase }}
+  </span>
+</div>

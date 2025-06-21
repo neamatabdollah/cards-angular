@@ -1,0 +1,75 @@
+// Color Variables
+$red: red;
+$green: green;
+$yellow: yellow;
+$gray-border: #ddd;
+$card-bg: #f9f9f9;
+$hover-shadow: rgba(222, 223, 216, 0.3);
+
+@mixin role-chip($bg, $color) {
+  background-color: $bg;
+  color: $color;
+}
+
+.user-card {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid $gray-border;
+  border-radius: 10px;
+  background-color: $card-bg;
+  width: 250px;
+
+  .profile-pic {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+
+    &:hover {
+      border: 1px solid rgba(255, 0, 0, 0.675);
+    }
+  }
+
+  h3 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 2px 0;
+  }
+
+  .role-chip {
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 20px;
+    text-transform: capitalize;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 10px $hover-shadow;
+    }
+
+    &.red-chip {
+      @include role-chip($red, white);
+    }
+
+    &.green-chip {
+      @include role-chip($green, white);
+    }
+
+    &.yellow-chip {
+      @include role-chip($yellow, black);
+    }
+  }
+}
